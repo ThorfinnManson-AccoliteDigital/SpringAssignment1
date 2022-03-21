@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"    xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+     http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+
+    <bean id="stu1" class="SpringBeans.Student">
+        <constructor-arg value="101" type="int"></constructor-arg>
+        <constructor-arg value="Rohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="stu2" class="SpringBeans.Student">
+        <constructor-arg value="102" type="int"></constructor-arg>
+        <constructor-arg value="Bohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="stu3" class="SpringBeans.Student">
+        <constructor-arg value="103" type="int"></constructor-arg>
+        <constructor-arg value="Cohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="stu4" class="SpringBeans.Student">
+        <constructor-arg value="104" type="int"></constructor-arg>
+        <constructor-arg value="Dohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="stu5" class="SpringBeans.Student">
+        <constructor-arg value="105" type="int"></constructor-arg>
+        <constructor-arg value="Eohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="stu6" class="SpringBeans.Student">
+        <constructor-arg value="106" type="int"></constructor-arg>
+        <constructor-arg value="Fohan" type="String"></constructor-arg>
+    </bean>
+
+    <bean id="teacher1" class="SpringBeans.Teacher">
+        <property name="id" value="201"/>
+        <property name="name" value="Bob"/>
+        <property name="subject" value="CompSci"/>
+    </bean>
+
+    <bean id="teacher2" class="SpringBeans.Teacher">
+        <property name="id" value="203"/>
+        <property name="name" value="Bill"/>
+        <property name="subject" value="CompSci"/>
+    </bean>
+
+    <util:list id="StudentList1" value-type="SpringBeans.Student">
+        <ref bean="stu1"/>
+        <ref bean="stu2"/>
+        <ref bean="stu3"/>
+    </util:list>
+    <util:list id="StudentList2" value-type="SpringBeans.Student">
+        <ref bean="stu1"/>
+        <ref bean="stu2"/>
+        <ref bean="stu3"/>
+    </util:list>
+
+    <bean id="department" class="SpringBeans.Department" init-method="initDepartment" destroy-method="destDepartment">
+        <constructor-arg value="Spring" type="String"></constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key-ref="teacher1" value-ref="StudentList1"></entry>
+                <entry key-ref="teacher2" value-ref="StudentList2"></entry>
+
+            </map>
+
+        </constructor-arg>
+    </bean>
+
+</beans>

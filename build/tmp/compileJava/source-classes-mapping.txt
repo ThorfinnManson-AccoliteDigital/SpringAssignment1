@@ -1,0 +1,8 @@
+SpringBeans/Teacher.java
+ SpringBeans.Teacher
+SpringBeans/Student.java
+ SpringBeans.Student
+SpringBeans/app.java
+ SpringBeans.app
+SpringBeans/Department.java
+ SpringBeans.Department
